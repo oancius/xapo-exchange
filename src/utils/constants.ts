@@ -1,4 +1,4 @@
 export enum EXCHANGE_ACTIONS {
-  buy = "buy",
-  sell = "sell",
+  buy = "Buy",
+  sell = "Sell",
 }
