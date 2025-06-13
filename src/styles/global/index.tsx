@@ -180,6 +180,7 @@ const GlobalStyle = createGlobalStyle`
     flex: none;
     order: 1;
     flex-grow: 0;
+    align-items: flex-start;
 
 
     color-scheme: light dark;
