@@ -36,6 +36,7 @@ export const themeColors = {
 
 export const genericStyles = {
   borderRadius: "10px",
+  transition: "all .3s ease",
 };
 
 export const devices = {

@@ -1,10 +1,11 @@
 import Header from "../../components/header";
+import Converter from "../../components/converter";
 
 function Exchange() {
   return (
     <>
       <Header />
-      <div>exchange page</div>
+      <Converter />
     </>
   );
 }
