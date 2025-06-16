@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { genericStyles, themeColors } from "../../styles/global";
+import { genericStyles, themeColors } from "../../../styles/global";
 
 export const Component = styled.button`
   position: relative;

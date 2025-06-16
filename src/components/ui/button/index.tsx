@@ -7,7 +7,11 @@ interface Props {
 }
 
 function Button({ children, disabled }: Props) {
-  return <Component disabled={disabled}>{children}</Component>;
+  return (
+    <Component type={"submit"} disabled={disabled}>
+      {children}
+    </Component>
+  );
 }
 
 export default Button;
