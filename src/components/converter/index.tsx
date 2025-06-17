@@ -9,6 +9,7 @@ import NumericInput from "../ui/input";
 import { StyledForm } from "../ui/generic/styled.tsx";
 import { CurrencyTag, Group, Label } from "../ui/input/styled.tsx";
 import AnimatedWord from "../ui/animatedWord";
+import ConfirmActionModal from "../modals/confirmAction";
 
 export interface ConverterFormInterface {
   fromAmount: number | "";
@@ -21,6 +22,10 @@ function Converter() {
   const [exchangeType, setExchangeType] = useState<EXCHANGE_ACTIONS>(
     EXCHANGE_ACTIONS.buy,
   );
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  // Used to save the values after submit, to don't be affected of further price changes
+  const [frozenFormValues, setFrozenFormValues] =
+    useState<ConverterFormInterface>({ fromAmount: 0, toAmount: 0 });
 
   const InputsSyncHandler = () => {
     const { values, setFieldValue } = useFormikContext<
@@ -74,9 +79,12 @@ function Converter() {
       <Formik
         initialValues={initialValues}
         validationSchema={formSchema}
-        onSubmit={(values) => console.log("Submitted", values)}
+        onSubmit={(values) => {
+          setFrozenFormValues(values);
+          setShowConfirmModal(true);
+        }}
       >
-        {({ errors, touched, isValid, isSubmitting, dirty }) => (
+        {({ errors, touched, isValid, dirty }) => (
           <StyledForm>
             <Group>
               <Label>
@@ -108,13 +116,18 @@ function Converter() {
             <InputsSyncHandler />
             <Rate>Exchange rate: 1 BTC = ${BTC_PRICE} USD</Rate>
             <ButtonWrapper>
-              <Button disabled={!isValid || isSubmitting || !dirty}>
-                {exchangeType} BTC
-              </Button>
+              <Button disabled={!isValid || !dirty}>{exchangeType} BTC</Button>
             </ButtonWrapper>
           </StyledForm>
         )}
       </Formik>
+      <ConfirmActionModal
+        isOpen={showConfirmModal}
+        onConfirm={() => setShowConfirmModal(false)}
+        onCancel={() => setShowConfirmModal(false)}
+        title={"Confirm exchange action!"}
+        message={`Please confirm that you want to ${exchangeType} ${frozenFormValues.fromAmount} BTC for ${frozenFormValues.toAmount} USD at a rate of ${BTC_PRICE} USD for 1 BTC`}
+      />
     </Wrapper>
   );
 }
