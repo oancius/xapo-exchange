@@ -76,7 +76,7 @@ function Converter() {
         validationSchema={formSchema}
         onSubmit={(values) => console.log("Submitted", values)}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, isValid, isSubmitting, dirty }) => (
           <StyledForm>
             <Group>
               <Label>
@@ -108,7 +108,9 @@ function Converter() {
             <InputsSyncHandler />
             <Rate>Exchange rate: 1 BTC = ${BTC_PRICE} USD</Rate>
             <ButtonWrapper>
-              <Button>{exchangeType} BTC</Button>
+              <Button disabled={!isValid || isSubmitting || !dirty}>
+                {exchangeType} BTC
+              </Button>
             </ButtonWrapper>
           </StyledForm>
         )}

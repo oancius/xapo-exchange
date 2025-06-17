@@ -21,13 +21,19 @@ export const Component = styled.button`
   border-radius: ${genericStyles.borderRadius};
   transition: ${genericStyles.transition};
 
-  &:hover,
-  &:active {
+  &:hover:enabled,
+  &:active:enabled {
     background-color: ${themeColors.orange[500]};
   }
 
-  &:hover {
+  &:hover:enabled {
     transform: scale(1.03);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 `;
