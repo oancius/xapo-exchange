@@ -2,6 +2,7 @@ import { useField, useFormikContext } from "formik";
 import * as React from "react";
 import type { ConverterFormInterface } from "../../converter";
 import { useEffect, useRef, useState } from "react";
+import { Input } from "./styled.tsx";
 
 interface Props {
   name: string;
@@ -88,7 +89,7 @@ function NumericInput({
   };
 
   return (
-    <input
+    <Input
       ref={inputRef}
       type="text"
       inputMode="decimal"

@@ -1,11 +1,13 @@
-import { Title, Wrapper } from "./styled.tsx";
+import { ButtonWrapper, ErrorText, Rate, Title, Wrapper } from "./styled.tsx";
 import Switch from "../switch";
 import { useEffect, useState } from "react";
 import { EXCHANGE_ACTIONS } from "../../utils/constants.ts";
 import Button from "../ui/button";
-import { Form, Formik, useFormikContext } from "formik";
+import { Formik, useFormikContext } from "formik";
 import * as Yup from "yup";
 import NumericInput from "../ui/input";
+import { StyledForm } from "../ui/generic/styled.tsx";
+import { Group, Label } from "../ui/input/styled.tsx";
 
 export interface ConverterFormInterface {
   fromAmount: number | "";
@@ -56,8 +58,12 @@ function Converter() {
   };
 
   const formSchema = Yup.object({
-    fromAmount: Yup.number().required("Required").min(0, "Must be positive"),
-    toAmount: Yup.number().required("Required").min(0, "Must be positive"),
+    fromAmount: Yup.number()
+      .required("This field is required")
+      .min(0, "Must be positive"),
+    toAmount: Yup.number()
+      .required("This field is required")
+      .min(0, "Must be positive"),
   });
 
   return (
@@ -70,28 +76,34 @@ function Converter() {
         onSubmit={(values) => console.log("Submitted", values)}
       >
         {({ errors, touched }) => (
-          <Form>
-            <label>
-              You {exchangeType === EXCHANGE_ACTIONS.buy ? "buy" : "sell"}
-            </label>
-            <NumericInput name="fromAmount" placeholder="0.00" />
-            {touched.fromAmount && errors.fromAmount && (
-              <div>{errors.fromAmount}</div>
-            )}
-
-            <label>
-              You {exchangeType === EXCHANGE_ACTIONS.buy ? "pay" : "get"}
-            </label>
-            <NumericInput name="toAmount" placeholder="0.00" />
-            {touched.toAmount && errors.toAmount && (
-              <div>{errors.fromAmount}</div>
-            )}
-
+          <StyledForm>
+            <Group>
+              <Label>
+                Amount to{" "}
+                {exchangeType === EXCHANGE_ACTIONS.buy ? "buy" : "sell"}
+              </Label>
+              <NumericInput name="fromAmount" placeholder="0.00" />
+              {touched.fromAmount && errors.fromAmount && (
+                <ErrorText>{errors.fromAmount}</ErrorText>
+              )}
+            </Group>
+            <Group>
+              <Label>
+                Amount you{" "}
+                {exchangeType === EXCHANGE_ACTIONS.buy ? "pay" : "get"}
+              </Label>
+              <NumericInput name="toAmount" placeholder="0.00" />
+              {touched.toAmount && errors.toAmount && (
+                <ErrorText>{errors.toAmount}</ErrorText>
+              )}
+            </Group>
             {/* Logic component for syncing fields */}
             <InputsSyncHandler />
-
-            <Button>{exchangeType} BTC</Button>
-          </Form>
+            <Rate>Exchange rate: 1 BTC = ${BTC_PRICE} USD</Rate>
+            <ButtonWrapper>
+              <Button>{exchangeType} BTC</Button>
+            </ButtonWrapper>
+          </StyledForm>
         )}
       </Formik>
     </Wrapper>

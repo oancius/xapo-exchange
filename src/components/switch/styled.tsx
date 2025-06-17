@@ -15,6 +15,7 @@ export const Option = styled.div<{ $selected: boolean }>`
   width: 50%;
   height: 48px;
   font-size: 16px;
+  font-weight: 600;
   color: ${themeColors.grayText};
   cursor: pointer;
   transition: ${genericStyles.transition};

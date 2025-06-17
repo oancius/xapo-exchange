@@ -5,6 +5,7 @@ export const Component = styled.button`
   position: relative;
   display: inline-block;
   min-width: auto;
+  width: 100%;
   cursor: pointer;
   white-space: nowrap;
   margin: 0;
@@ -23,5 +24,10 @@ export const Component = styled.button`
   &:hover,
   &:active {
     background-color: ${themeColors.orange[500]};
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 `;
