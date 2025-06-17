@@ -15,7 +15,10 @@ export const Input = styled.input`
 export const Label = styled.label`
   font-size: 15px;
   padding-bottom: 8px;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
 `;
 
 export const Group = styled.div`

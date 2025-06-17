@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import NumericInput from "../ui/input";
 import { StyledForm } from "../ui/generic/styled.tsx";
 import { CurrencyTag, Group, Label } from "../ui/input/styled.tsx";
+import AnimatedWord from "../ui/animatedWord";
 
 export interface ConverterFormInterface {
   fromAmount: number | "";
@@ -80,7 +81,9 @@ function Converter() {
             <Group>
               <Label>
                 Amount to{" "}
-                {exchangeType === EXCHANGE_ACTIONS.buy ? "buy" : "sell"}
+                <AnimatedWord
+                  word={exchangeType === EXCHANGE_ACTIONS.buy ? "buy" : "sell"}
+                />
               </Label>
               <NumericInput name="fromAmount" placeholder="0.00" />
               {touched.fromAmount && errors.fromAmount && (
@@ -91,7 +94,9 @@ function Converter() {
             <Group>
               <Label>
                 Amount you{" "}
-                {exchangeType === EXCHANGE_ACTIONS.buy ? "pay" : "get"}
+                <AnimatedWord
+                  word={exchangeType === EXCHANGE_ACTIONS.buy ? "pay" : "get"}
+                />
               </Label>
               <NumericInput name="toAmount" placeholder="0.00" />
               {touched.toAmount && errors.toAmount && (
