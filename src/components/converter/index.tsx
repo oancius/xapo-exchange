@@ -7,7 +7,7 @@ import { Formik, useFormikContext } from "formik";
 import * as Yup from "yup";
 import NumericInput from "../ui/input";
 import { StyledForm } from "../ui/generic/styled.tsx";
-import { Group, Label } from "../ui/input/styled.tsx";
+import { CurrencyTag, Group, Label } from "../ui/input/styled.tsx";
 
 export interface ConverterFormInterface {
   fromAmount: number | "";
@@ -86,6 +86,7 @@ function Converter() {
               {touched.fromAmount && errors.fromAmount && (
                 <ErrorText>{errors.fromAmount}</ErrorText>
               )}
+              <CurrencyTag>BTC</CurrencyTag>
             </Group>
             <Group>
               <Label>
@@ -96,6 +97,7 @@ function Converter() {
               {touched.toAmount && errors.toAmount && (
                 <ErrorText>{errors.toAmount}</ErrorText>
               )}
+              <CurrencyTag>USD</CurrencyTag>
             </Group>
             {/* Logic component for syncing fields */}
             <InputsSyncHandler />
