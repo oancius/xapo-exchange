@@ -7,6 +7,7 @@ import {
 } from "react-router";
 import { useAppDispatch, useIntervalCallback } from "./utils/utilHooks.ts";
 import { getCoin } from "./slices/coins.ts";
+import Header from "./components/header";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <RouterProvider router={router} />
     </div>
   );

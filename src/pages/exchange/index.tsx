@@ -1,12 +1,11 @@
-import Header from "../../components/header";
 import Converter from "../../components/converter";
+import { Wrapper } from "./slied.tsx";
 
 function Exchange() {
   return (
-    <>
-      <Header />
+    <Wrapper>
       <Converter />
-    </>
+    </Wrapper>
   );
 }
 
