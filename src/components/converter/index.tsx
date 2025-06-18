@@ -10,15 +10,18 @@ import { StyledForm } from "../ui/generic/styled.tsx";
 import { CurrencyTag, Group, Label } from "../ui/input/styled.tsx";
 import AnimatedWord from "../ui/animatedWord";
 import ConfirmActionModal from "../modals/confirmAction";
+import { useAppSelector } from "../../utils/utilHooks.ts";
+import { selectCoin } from "../../slices/coins.ts";
+import { formatNumber } from "../../utils/helpers.ts";
 
 export interface ConverterFormInterface {
   fromAmount: number | "";
   toAmount: number | "";
 }
 
-const BTC_PRICE = 100.23;
-
 function Converter() {
+  const coinData = useAppSelector(selectCoin);
+  const locale = navigator.language;
   const [exchangeType, setExchangeType] = useState<EXCHANGE_ACTIONS>(
     EXCHANGE_ACTIONS.buy,
   );
@@ -33,20 +36,23 @@ function Converter() {
     >();
 
     useEffect(() => {
-      if (
-        values._lastChanged === "fromAmount" &&
-        typeof values.fromAmount === "number"
-      ) {
-        const newToAmount = +(values.fromAmount * BTC_PRICE).toFixed(2);
-        void setFieldValue("toAmount", newToAmount, false);
-        void setFieldValue("_lastChanged", "", false);
-      } else if (
-        values._lastChanged === "toAmount" &&
-        typeof values.toAmount === "number"
-      ) {
-        const newFromAmount = +(values.toAmount / BTC_PRICE).toFixed(2);
-        void setFieldValue("fromAmount", newFromAmount, false);
-        void setFieldValue("_lastChanged", "", false);
+      if (coinData) {
+        const btcPrice = coinData.price;
+        if (
+          values._lastChanged === "fromAmount" &&
+          typeof values.fromAmount === "number"
+        ) {
+          const newToAmount = +(values.fromAmount * btcPrice).toFixed(2);
+          void setFieldValue("toAmount", newToAmount, false);
+          void setFieldValue("_lastChanged", "", false);
+        } else if (
+          values._lastChanged === "toAmount" &&
+          typeof values.toAmount === "number"
+        ) {
+          const newFromAmount = +(values.toAmount / btcPrice).toFixed(2);
+          void setFieldValue("fromAmount", newFromAmount, false);
+          void setFieldValue("_lastChanged", "", false);
+        }
       }
     }, [
       values._lastChanged,
@@ -72,6 +78,8 @@ function Converter() {
       .min(0, "Must be positive"),
   });
 
+  console.log(coinData);
+
   return (
     <Wrapper>
       <Title>Exchange BTC / USD</Title>
@@ -93,7 +101,11 @@ function Converter() {
                   word={exchangeType === EXCHANGE_ACTIONS.buy ? "buy" : "sell"}
                 />
               </Label>
-              <NumericInput name="fromAmount" placeholder="0.00" />
+              <NumericInput
+                name="fromAmount"
+                placeholder="0.00"
+                decimals={18}
+              />
               {touched.fromAmount && errors.fromAmount && (
                 <ErrorText>{errors.fromAmount}</ErrorText>
               )}
@@ -114,7 +126,11 @@ function Converter() {
             </Group>
             {/* Logic component for syncing fields */}
             <InputsSyncHandler />
-            <Rate>Exchange rate: 1 BTC = ${BTC_PRICE} USD</Rate>
+            <Rate>
+              Exchange rate: 1 BTC = $
+              {coinData?.price ? formatNumber(coinData.price, locale, 0) : ""}{" "}
+              USD
+            </Rate>
             <ButtonWrapper>
               <Button disabled={!isValid || !dirty}>{exchangeType} BTC</Button>
             </ButtonWrapper>
@@ -126,7 +142,7 @@ function Converter() {
         onConfirm={() => setShowConfirmModal(false)}
         onCancel={() => setShowConfirmModal(false)}
         title={"Confirm exchange action!"}
-        message={`Please confirm that you want to ${exchangeType} ${frozenFormValues.fromAmount} BTC for ${frozenFormValues.toAmount} USD at a rate of ${BTC_PRICE} USD for 1 BTC`}
+        message={`Please confirm that you want to ${exchangeType} ${frozenFormValues.fromAmount} BTC for ${frozenFormValues.toAmount} USD at a rate of ${coinData?.price ? coinData.price : ""} USD for 1 BTC`}
       />
     </Wrapper>
   );

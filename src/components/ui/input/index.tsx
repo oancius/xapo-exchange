@@ -3,6 +3,11 @@ import * as React from "react";
 import type { ConverterFormInterface } from "../../converter";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "./styled.tsx";
+import {
+  formatNumber,
+  getSeparators,
+  parseNumber,
+} from "../../../utils/helpers.ts";
 
 interface Props {
   name: string;
@@ -11,24 +16,6 @@ interface Props {
   decimals?: number;
   className?: string;
 }
-
-const getSeparators = (locale: string) => {
-  const parts = new Intl.NumberFormat(locale).formatToParts(12345.6);
-  const group = parts.find((p) => p.type === "group")?.value ?? ",";
-  const decimal = parts.find((p) => p.type === "decimal")?.value ?? ".";
-  return { group, decimal };
-};
-
-const parseNumber = (input: string, locale: string): number | "" => {
-  const { group, decimal } = getSeparators(locale);
-
-  const normalized = input
-    .replace(new RegExp(`\\${group}`, "g"), "") // remove group sep
-    .replace(new RegExp(`\\${decimal}`), "."); // normalize decimal to dot
-
-  const parsed = parseFloat(normalized);
-  return isNaN(parsed) ? "" : parsed;
-};
 
 function NumericInput({
   name,
@@ -53,11 +40,7 @@ function NumericInput({
       typeof value === "number" &&
       document.activeElement !== inputRef.current
     ) {
-      const formatted = new Intl.NumberFormat(locale, {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      }).format(value);
-      setInputValue(formatted);
+      setInputValue(formatNumber(value, locale, decimals));
     }
   }, [value, locale, decimals]);
 
@@ -80,11 +63,7 @@ function NumericInput({
 
   const handleBlur = () => {
     if (typeof value === "number") {
-      const formatted = new Intl.NumberFormat(locale, {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      }).format(value);
-      setInputValue(formatted);
+      setInputValue(formatNumber(value, locale, decimals));
     }
   };
 

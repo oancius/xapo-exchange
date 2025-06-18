@@ -5,14 +5,24 @@ import {
   type RouteObject,
   RouterProvider,
 } from "react-router";
+import { useAppDispatch, useIntervalCallback } from "./utils/utilHooks.ts";
+import { getCoin } from "./slices/coins.ts";
 
 function App() {
+  const dispatch = useAppDispatch();
   const routes: RouteObject[] = [
     {
       path: "/",
       element: <Exchange />,
     },
   ];
+
+  useIntervalCallback(
+    () => {
+      dispatch(getCoin("bitcoin"));
+    },
+    import.meta.env.VITE_POLLING_INTERVAL,
+  );
 
   const router = createBrowserRouter(routes);
 
