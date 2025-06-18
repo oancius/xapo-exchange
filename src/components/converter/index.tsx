@@ -13,6 +13,7 @@ import ConfirmActionModal from "../modals/confirmAction";
 import { useAppSelector } from "../../utils/utilHooks.ts";
 import { selectCoin } from "../../slices/coins.ts";
 import { formatNumber } from "../../utils/helpers.ts";
+import PulsatingText from "../ui/pulsatingText";
 
 export interface ConverterFormInterface {
   fromAmount: number | "";
@@ -27,8 +28,9 @@ function Converter() {
   );
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   // Used to save the values after submit, to don't be affected of further price changes
-  const [frozenFormValues, setFrozenFormValues] =
-    useState<ConverterFormInterface>({ fromAmount: 0, toAmount: 0 });
+  const [frozenFormValues, setFrozenFormValues] = useState<
+    ConverterFormInterface & { price: number }
+  >({ fromAmount: 0, toAmount: 0, price: 0 });
 
   const InputsSyncHandler = () => {
     const { values, setFieldValue } = useFormikContext<
@@ -61,6 +63,17 @@ function Converter() {
       setFieldValue,
     ]);
 
+    useEffect(() => {
+      if (coinData) {
+        const btcPrice = coinData.price;
+        if (typeof values.fromAmount === "number") {
+          const newToAmount = +(values.fromAmount * btcPrice).toFixed(2);
+          void setFieldValue("toAmount", newToAmount, false);
+          void setFieldValue("_lastChanged", "", false);
+        }
+      }
+    }, [coinData]);
+
     return null;
   };
 
@@ -88,7 +101,11 @@ function Converter() {
         initialValues={initialValues}
         validationSchema={formSchema}
         onSubmit={(values) => {
-          setFrozenFormValues(values);
+          setFrozenFormValues({
+            fromAmount: values.fromAmount,
+            toAmount: values.toAmount,
+            price: coinData ? coinData?.price : 0,
+          });
           setShowConfirmModal(true);
         }}
       >
@@ -127,9 +144,14 @@ function Converter() {
             {/* Logic component for syncing fields */}
             <InputsSyncHandler />
             <Rate>
-              Exchange rate: 1 BTC = $
-              {coinData?.price ? formatNumber(coinData.price, locale, 0) : ""}{" "}
-              USD
+              Exchange rate: 1 BTC = {` `}
+              <PulsatingText
+                text={
+                  coinData?.price
+                    ? `${formatNumber(coinData.price, locale, 0)} USD`
+                    : ""
+                }
+              />
             </Rate>
             <ButtonWrapper>
               <Button disabled={!isValid || !dirty}>{exchangeType} BTC</Button>
@@ -142,7 +164,7 @@ function Converter() {
         onConfirm={() => setShowConfirmModal(false)}
         onCancel={() => setShowConfirmModal(false)}
         title={"Confirm exchange action!"}
-        message={`Please confirm that you want to ${exchangeType} ${frozenFormValues.fromAmount} BTC for ${frozenFormValues.toAmount} USD at a rate of ${coinData?.price ? coinData.price : ""} USD for 1 BTC`}
+        message={`Please confirm that you want to ${exchangeType} ${formatNumber(frozenFormValues.fromAmount as number, locale, 18)} BTC for ${formatNumber(frozenFormValues.toAmount as number, locale, 2)} USD at a rate of ${formatNumber(frozenFormValues.price, locale, 2)} USD for 1 BTC`}
       />
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import {
   useSelector,
 } from "react-redux";
 import type { RootState, AppDispatch } from "../store";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Use throughout app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -34,4 +34,14 @@ export function useIntervalCallback(
     const id = setInterval(tick, delay);
     return () => clearInterval(id);
   }, [delay]);
+}
+
+export function usePulseOnChange<T>(value: T): number {
+  const [animationKey, setAnimationKey] = useState(0);
+
+  useEffect(() => {
+    setAnimationKey((prev) => prev + 1);
+  }, [value]);
+
+  return animationKey;
 }
