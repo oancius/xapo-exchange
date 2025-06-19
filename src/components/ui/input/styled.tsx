@@ -32,7 +32,7 @@ export const CurrencyTag = styled.div`
   font-size: 12px;
   font-weight: 600;
   right: 8px;
-  top: 41px;
+  top: 42px;
   padding: 0 8px;
   border-radius: 8px;
   border: 1px solid ${themeColors.orange[600]};
