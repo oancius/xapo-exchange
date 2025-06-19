@@ -1,6 +1,6 @@
 import { ButtonWrapper, ErrorText, Rate, Title, Wrapper } from "./styled.tsx";
 import Switch from "../switch";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { EXCHANGE_ACTIONS } from "../../utils/constants.ts";
 import Button from "../ui/button";
 import { Formik, useFormikContext } from "formik";

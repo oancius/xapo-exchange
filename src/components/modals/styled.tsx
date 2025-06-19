@@ -39,7 +39,7 @@ export const StyledModal = styled(motion.div)`
   padding: 24px;
   border: 1px solid ${themeColors.borderColor};
   border-radius: ${genericStyles.borderRadius};
-  max-width: 340px;
+  max-width: 480px;
   width: 90%;
   text-align: center;
 `;

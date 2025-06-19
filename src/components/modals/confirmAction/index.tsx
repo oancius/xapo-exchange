@@ -28,7 +28,7 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     maxHeight: "90%",
-    maxWidth: "340px",
+    maxWidth: "480px",
     background: `${themeColors.elementBackground}`,
     borderRadius: `${genericStyles.borderRadius}`,
     border: `1px solid ${themeColors.borderColor}`,

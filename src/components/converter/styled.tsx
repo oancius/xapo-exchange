@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { genericStyles, themeColors } from "../../styles/global";
 
 export const Wrapper = styled.div`
-  width: 340px;
+  width: 480px;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 export const Title = styled.h2`
   font-size: 24px;
   font-weight: 600;
-  margin: 0 0 16px;
+  margin: 0 0 32px;
   text-align: center;
 `;
 
