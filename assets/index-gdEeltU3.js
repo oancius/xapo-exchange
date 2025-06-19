@@ -371,7 +371,7 @@ attempted value: ${c}
   font-size: 12px;
   font-weight: 600;
   right: 8px;
-  top: 41px;
+  top: 42px;
   padding: 0 8px;
   border-radius: 8px;
   border: 1px solid ${ut.orange[600]};
@@ -392,7 +392,7 @@ attempted value: ${c}
 `,FN=ct.span`
   display: inline-block;
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 0;
   opacity: 0;
   transform: translateY(100%);
