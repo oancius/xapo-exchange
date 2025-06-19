@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-Light.eot');
+  src: url('./HelveticaNowDisplay-Light.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-Light.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-Light.woff') format('woff'),
+  url('./HelveticaNowDisplay-Light.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-Light.svg#HelveticaNowDisplay-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-Medium.eot');
+  src: url('./HelveticaNowDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-Medium.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-Medium.woff') format('woff'),
+  url('./HelveticaNowDisplay-Medium.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-Medium.svg#HelveticaNowDisplay-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-Regular.eot');
+  src: url('./HelveticaNowDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-Regular.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-Regular.woff') format('woff'),
+  url('./HelveticaNowDisplay-Regular.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-Regular.svg#HelveticaNowDisplay-Regular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-Thin.eot');
+  src: url('./HelveticaNowDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-Thin.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-Thin.woff') format('woff'),
+  url('./HelveticaNowDisplay-Thin.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-Thin.svg#HelveticaNowDisplay-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-ExtLt.eot');
+  src: url('./HelveticaNowDisplay-ExtLt.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-ExtLt.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-ExtLt.woff') format('woff'),
+  url('./HelveticaNowDisplay-ExtLt.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-ExtLt.svg#HelveticaNowDisplay-ExtLt') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-ExtraBold.eot');
+  src: url('./HelveticaNowDisplay-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-ExtraBold.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-ExtraBold.woff') format('woff'),
+  url('./HelveticaNowDisplay-ExtraBold.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-ExtraBold.svg#HelveticaNowDisplay-ExtraBold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-Bold.eot');
+  src: url('./HelveticaNowDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-Bold.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-Bold.woff') format('woff'),
+  url('./HelveticaNowDisplay-Bold.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-Bold.svg#HelveticaNowDisplay-Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('./HelveticaNowDisplay-Black.eot');
+  src: url('./HelveticaNowDisplay-Black.eot?#iefix') format('embedded-opentype'),
+  url('./HelveticaNowDisplay-Black.woff2') format('woff2'),
+  url('./HelveticaNowDisplay-Black.woff') format('woff'),
+  url('./HelveticaNowDisplay-Black.ttf') format('truetype'),
+  url('./HelveticaNowDisplay-Black.svg#HelveticaNowDisplay-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
