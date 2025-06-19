@@ -96,8 +96,6 @@ function Converter() {
       .min(0, "Must be positive"),
   });
 
-  console.log(coinData);
-
   return (
     <Wrapper>
       <Title>Exchange BTC / USD</Title>
