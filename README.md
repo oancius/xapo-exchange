@@ -6,6 +6,7 @@
 
 -  React 18 + TypeScript
 -  Vite (blazing-fast bundler)
+-  Redux (data storage)
 -  Formik (form state & validation)
 -  Yup (validation schema)
 -  Styled-components
