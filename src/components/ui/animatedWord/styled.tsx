@@ -14,7 +14,7 @@ export const Wrapper = styled.span`
 export const Word = styled.span`
   display: inline-block;
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 0;
   opacity: 0;
   transform: translateY(100%);
