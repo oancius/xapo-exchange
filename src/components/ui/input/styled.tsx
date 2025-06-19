@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { genericStyles, themeColors } from "../../../styles/global";
+import {
+  breakpoints,
+  genericStyles,
+  themeColors,
+} from "../../../styles/global";
 
 export const Input = styled.input`
   width: 100%;
@@ -32,8 +36,12 @@ export const CurrencyTag = styled.div`
   font-size: 12px;
   font-weight: 600;
   right: 8px;
-  top: 42px;
+  top: 41px;
   padding: 0 8px;
   border-radius: 8px;
   border: 1px solid ${themeColors.orange[600]};
+
+  @media ${breakpoints.mobile} {
+    top: 42px;
+  }
 `;
