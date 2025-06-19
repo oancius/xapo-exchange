@@ -3,11 +3,7 @@ import * as React from "react";
 import type { ConverterFormInterface } from "../../converter";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "./styled.tsx";
-import {
-  formatNumber,
-  getSeparators,
-  parseNumber,
-} from "../../../utils/helpers.ts";
+import { formatNumber, parseNumber } from "../../../utils/helpers.ts";
 
 interface Props {
   name: string;
@@ -32,7 +28,6 @@ function NumericInput({
   const { setValue } = helpers;
 
   const [inputValue, setInputValue] = useState("");
-  const separators = getSeparators(locale);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Sync from Formik value (on init or external change)
