@@ -47,16 +47,15 @@ function NumericInput({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value;
+    const normalizedRaw = raw.replace(",", "."); // normalize iOS decimal
 
-    // Allow only digits, decimal separator, and backspace
-    const regex = new RegExp(
-      `^[0-9\\${separators.decimal}\\${separators.group}]*$`,
-    );
-    if (!regex.test(raw) && raw !== "") return;
+    // Allow only digits and single dot
+    const regex = /^[0-9.]*$/;
+    if (!regex.test(normalizedRaw) && raw !== "") return;
 
     setInputValue(raw);
 
-    const parsed = parseNumber(raw, locale);
+    const parsed = parseNumber(normalizedRaw, locale);
     void setValue(parsed);
     void formik.setFieldTouched(name, true, false);
     void formik.setFieldValue("_lastChanged", name, false);
