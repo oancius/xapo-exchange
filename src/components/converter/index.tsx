@@ -23,7 +23,8 @@ export interface ConverterFormInterface {
 
 function Converter() {
   const coinData = useAppSelector(selectCoin);
-  const locale = navigator.language;
+  /* const locale = navigator.language; // I disabled it due to a bug on my ios device. */
+  const locale = "en-US";
   const [exchangeType, setExchangeType] = useState<EXCHANGE_ACTIONS>(
     EXCHANGE_ACTIONS.buy,
   );

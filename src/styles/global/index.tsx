@@ -61,12 +61,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-Light.eot');
-      src: url('/fonts/HelveticaNowDisplay-Light.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-Light.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-Light.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-Light.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-Light.svg#HelveticaNowDisplay-Light') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-Light.eot');
+      src: url('./fonts/HelveticaNowDisplay-Light.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-Light.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-Light.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-Light.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-Light.svg#HelveticaNowDisplay-Light') format('svg');
       font-weight: 300;
       font-style: normal;
       font-display: swap;
@@ -74,12 +74,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-Medium.eot');
-      src: url('/fonts/HelveticaNowDisplay-Medium.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-Medium.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-Medium.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-Medium.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-Medium.svg#HelveticaNowDisplay-Medium') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-Medium.eot');
+      src: url('./fonts/HelveticaNowDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-Medium.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-Medium.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-Medium.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-Medium.svg#HelveticaNowDisplay-Medium') format('svg');
       font-weight: 500;
       font-style: normal;
       font-display: swap;
@@ -87,12 +87,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-Regular.eot');
-      src: url('/fonts/HelveticaNowDisplay-Regular.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-Regular.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-Regular.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-Regular.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-Regular.svg#HelveticaNowDisplay-Regular') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-Regular.eot');
+      src: url('./fonts/HelveticaNowDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-Regular.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-Regular.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-Regular.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-Regular.svg#HelveticaNowDisplay-Regular') format('svg');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
@@ -100,12 +100,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-Thin.eot');
-      src: url('/fonts/HelveticaNowDisplay-Thin.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-Thin.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-Thin.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-Thin.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-Thin.svg#HelveticaNowDisplay-Thin') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-Thin.eot');
+      src: url('./fonts/HelveticaNowDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-Thin.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-Thin.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-Thin.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-Thin.svg#HelveticaNowDisplay-Thin') format('svg');
       font-weight: 100;
       font-style: normal;
       font-display: swap;
@@ -113,12 +113,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-ExtLt.eot');
-      src: url('/fonts/HelveticaNowDisplay-ExtLt.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-ExtLt.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-ExtLt.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-ExtLt.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-ExtLt.svg#HelveticaNowDisplay-ExtLt') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-ExtLt.eot');
+      src: url('./fonts/HelveticaNowDisplay-ExtLt.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-ExtLt.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-ExtLt.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-ExtLt.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-ExtLt.svg#HelveticaNowDisplay-ExtLt') format('svg');
       font-weight: 300;
       font-style: normal;
       font-display: swap;
@@ -126,12 +126,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-ExtraBold.eot');
-      src: url('/fonts/HelveticaNowDisplay-ExtraBold.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-ExtraBold.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-ExtraBold.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-ExtraBold.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-ExtraBold.svg#HelveticaNowDisplay-ExtraBold') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-ExtraBold.eot');
+      src: url('./fonts/HelveticaNowDisplay-ExtraBold.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-ExtraBold.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-ExtraBold.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-ExtraBold.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-ExtraBold.svg#HelveticaNowDisplay-ExtraBold') format('svg');
       font-weight: 800;
       font-style: normal;
       font-display: swap;
@@ -139,12 +139,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-Bold.eot');
-      src: url('/fonts/HelveticaNowDisplay-Bold.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-Bold.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-Bold.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-Bold.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-Bold.svg#HelveticaNowDisplay-Bold') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-Bold.eot');
+      src: url('./fonts/HelveticaNowDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-Bold.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-Bold.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-Bold.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-Bold.svg#HelveticaNowDisplay-Bold') format('svg');
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -152,12 +152,12 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
       font-family: 'HelveticaNowDisplay';
-      src: url('/fonts/HelveticaNowDisplay-Black.eot');
-      src: url('/fonts/HelveticaNowDisplay-Black.eot?#iefix') format('embedded-opentype'),
-          url('/fonts/HelveticaNowDisplay-Black.woff2') format('woff2'),
-          url('/fonts/HelveticaNowDisplay-Black.woff') format('woff'),
-          url('/fonts/HelveticaNowDisplay-Black.ttf') format('truetype'),
-          url('/fonts/HelveticaNowDisplay-Black.svg#HelveticaNowDisplay-Black') format('svg');
+      src: url('./fonts/HelveticaNowDisplay-Black.eot');
+      src: url('./fonts/HelveticaNowDisplay-Black.eot?#iefix') format('embedded-opentype'),
+          url('./fonts/HelveticaNowDisplay-Black.woff2') format('woff2'),
+          url('./fonts/HelveticaNowDisplay-Black.woff') format('woff'),
+          url('./fonts/HelveticaNowDisplay-Black.ttf') format('truetype'),
+          url('./fonts/HelveticaNowDisplay-Black.svg#HelveticaNowDisplay-Black') format('svg');
       font-weight: 900;
       font-style: normal;
       font-display: swap;

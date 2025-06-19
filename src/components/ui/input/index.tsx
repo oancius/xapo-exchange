@@ -20,7 +20,8 @@ interface Props {
 function NumericInput({
   name,
   placeholder,
-  locale = navigator.language, // Get user locale
+  /* locale = navigator.language, // Get user locale, i disabled it due to a bug on my ios device. */
+  locale = "en-US",
   decimals = 2,
   className = "",
 }: Props) {

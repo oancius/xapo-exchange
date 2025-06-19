@@ -1,7 +1,7 @@
 import "./App.css";
 import Exchange from "./pages/exchange";
 import {
-  createBrowserRouter,
+  createHashRouter,
   type RouteObject,
   RouterProvider,
 } from "react-router";
@@ -25,7 +25,7 @@ function App() {
     import.meta.env.VITE_POLLING_INTERVAL,
   );
 
-  const router = createBrowserRouter(routes);
+  const router = createHashRouter(routes);
 
   return (
     <div className="App">
