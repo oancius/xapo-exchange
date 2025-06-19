@@ -1,6 +1,6 @@
 import { ButtonWrapper, ErrorText, Rate, Title, Wrapper } from "./styled.tsx";
 import Switch from "../switch";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EXCHANGE_ACTIONS } from "../../utils/constants.ts";
 import Button from "../ui/button";
 import { Formik, useFormikContext } from "formik";
@@ -14,6 +14,7 @@ import { useAppSelector } from "../../utils/utilHooks.ts";
 import { selectCoin } from "../../slices/coins.ts";
 import { formatNumber } from "../../utils/helpers.ts";
 import PulsatingText from "../ui/pulsatingText";
+import SuccessModal from "../modals/success";
 
 export interface ConverterFormInterface {
   fromAmount: number | "";
@@ -27,10 +28,12 @@ function Converter() {
     EXCHANGE_ACTIONS.buy,
   );
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   // Used to save the values after submit, to don't be affected of further price changes
   const [frozenFormValues, setFrozenFormValues] = useState<
     ConverterFormInterface & { price: number }
   >({ fromAmount: 0, toAmount: 0, price: 0 });
+  const [formKey, setFormKey] = useState(0);
 
   const InputsSyncHandler = () => {
     const { values, setFieldValue } = useFormikContext<
@@ -77,9 +80,10 @@ function Converter() {
     return null;
   };
 
-  const initialValues: ConverterFormInterface = {
+  const initialValues: ConverterFormInterface & { _lastChanged: string } = {
     fromAmount: "",
     toAmount: "",
+    _lastChanged: "",
   };
 
   const formSchema = Yup.object({
@@ -98,6 +102,7 @@ function Converter() {
       <Title>Exchange BTC / USD</Title>
       <Switch value={exchangeType} onChange={setExchangeType} />
       <Formik
+        key={formKey}
         initialValues={initialValues}
         validationSchema={formSchema}
         onSubmit={(values) => {
@@ -161,10 +166,20 @@ function Converter() {
       </Formik>
       <ConfirmActionModal
         isOpen={showConfirmModal}
-        onConfirm={() => setShowConfirmModal(false)}
+        onConfirm={() => {
+          setShowConfirmModal(false);
+          setShowSuccessModal(true);
+          setFormKey((prev) => prev + 1); // To be moved on the real request success
+        }}
         onCancel={() => setShowConfirmModal(false)}
         title={"Confirm exchange action!"}
         message={`Please confirm that you want to ${exchangeType} ${formatNumber(frozenFormValues.fromAmount as number, locale, 18)} BTC for ${formatNumber(frozenFormValues.toAmount as number, locale, 2)} USD at a rate of ${formatNumber(frozenFormValues.price, locale, 2)} USD for 1 BTC`}
+      />
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title="Exchange Completed"
+        description="Your exchange was successfull!"
       />
     </Wrapper>
   );
