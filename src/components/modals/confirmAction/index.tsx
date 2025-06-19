@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import { ButtonsWrapper, Message, Title } from "../styled.tsx";
 import Button from "../../ui/button";
-import { genericStyles, themeColors } from "../../../styles/global";
+import { devices, genericStyles, themeColors } from "../../../styles/global";
 
 interface Props {
   isOpen: boolean;
@@ -28,7 +28,7 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     maxHeight: "90%",
-    maxWidth: "480px",
+    maxWidth: `${window.innerWidth <= devices.mobile ? "340px" : "480px"}`,
     background: `${themeColors.elementBackground}`,
     borderRadius: `${genericStyles.borderRadius}`,
     border: `1px solid ${themeColors.borderColor}`,

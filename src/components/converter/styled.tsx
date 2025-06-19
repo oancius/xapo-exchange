@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { genericStyles, themeColors } from "../../styles/global";
+import { breakpoints, genericStyles, themeColors } from "../../styles/global";
 
 export const Wrapper = styled.div`
   width: 480px;
@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   background: ${themeColors.elementBackground};
   border: 1px solid ${themeColors.borderColor};
   border-radius: ${genericStyles.borderRadius};
+
+  @media ${breakpoints.mobile} {
+    width: 340px;
+  }
 `;
 
 export const Title = styled.h2`

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { genericStyles, themeColors } from "../../styles/global";
+import { breakpoints, genericStyles, themeColors } from "../../styles/global";
 
 export const Title = styled.div`
   text-align: center;
@@ -42,6 +42,10 @@ export const StyledModal = styled(motion.div)`
   max-width: 480px;
   width: 90%;
   text-align: center;
+
+  @media ${breakpoints.mobile} {
+    width: 340px;
+  }
 `;
 
 export const AnimatedIcon = styled(motion.div)`
