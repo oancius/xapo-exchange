@@ -55,7 +55,7 @@ function Converter() {
           values._lastChanged === "toAmount" &&
           typeof values.toAmount === "number"
         ) {
-          const newFromAmount = +(values.toAmount / btcPrice).toFixed(2);
+          const newFromAmount = +(values.toAmount / btcPrice).toFixed(18);
           void setFieldValue("fromAmount", newFromAmount, false);
           void setFieldValue("_lastChanged", "", false);
         }
