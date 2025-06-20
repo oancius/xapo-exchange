@@ -30,7 +30,7 @@ function Converter() {
   );
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  // Used to save the values after submit, to don't be affected of further price changes
+  // Used to save the values after submit, to not be affected by further price changes
   const [frozenFormValues, setFrozenFormValues] = useState<
     ConverterFormInterface & { price: number }
   >({ fromAmount: 0, toAmount: 0, price: 0 });
